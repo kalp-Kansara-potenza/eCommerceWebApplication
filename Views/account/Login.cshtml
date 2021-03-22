@@ -1,0 +1,209 @@
+﻿@{
+    Layout = null;
+}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>E-Commerce | Login</title>
+    
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="~/css/animate.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+</head>
+
+@model Ecommerce.Models.Login
+
+<span class="bg-danger">@ViewBag.err</span>
+
+<body class="gray-bg">
+
+    <div class="middle-box text-center loginscreen animated fadeInDown">
+        <div>
+            <div>
+
+                <h1 class="logo-name"></h1>
+
+            </div>
+            <h3>E-Commerce Login</h3>
+
+            <form class="m-t" role="form" method="post">
+                <div class="form-group">
+                    @Html.TextBoxFor(c => c.user_name, new { @Value = "asd", id = "username", @class = "form-control", placeholder = "Username / Email-Id" })
+
+                    @Html.ValidationMessageFor(c => c.user_name, "", new { @class = "text-danger" })
+                    <span id="errmessage" class="alert-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.PasswordFor(c => c.password, new { @class = "form-control", placeholder = "Password" })
+                    @Html.ValidationMessageFor(c => c.password, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <div class="bg-transparent" style="text-align: left;" id="rememberme">
+                        <div class="checkbox i-checks"><label> Remember Me @Html.CheckBoxFor(c => c.RememberMe) <i></i> </label></div>
+                        
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary block full-width m-b" id="login" onclick="@Url.Action("Login","account")" style="background-color: #1ab394; border-color: #1ab394;">Login</button>
+
+
+                <div class="form-group col-md-12" id="forgotpasslink" onclick="datahide()">
+                    <div class="bg-transparent">
+                        <a href="#">Forgot password?</a>
+                    </div>
+                </div>
+
+                <p class="text-muted text-center"><small>Do not have an account?</small></p>
+                <div id="signup"><a class="btn btn-sm btn-white btn-block underlineHover" href="@Url.Action("Registration","account")">Create an account</a></div>
+                <div id="signin"><a href="@Url.Action("Login","account")" class="btn btn-sm btn-white btn-block">Return To Login</a></div>
+            </form>
+            <p class="m-t">
+                <small>
+                    Copyright
+                    <script>document.write(new Date().getFullYear())</script>© <a href="#" class="">E-Commerce</a>
+                    All Rights Reserved.
+                </small>
+            </p>
+        </div>
+    </div>
+
+
+
+
+    @*<center>
+            <div class="col-md-6 py-5 ">
+                <h4 class="pb-4" id="heading">Login</h4>
+                <form class="row g-3" method="post">
+                    <div class="form-group row g-3">
+
+                        <div class="form-group col-md-12">
+                            <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"> </div>
+                                </div>
+                                @Html.TextBoxFor(c => c.user_name, new {@Value="asd", id = "username", @class = "form-control", placeholder = "Username / Email-Id" })
+                            </div>
+                            @Html.ValidationMessageFor(c => c.user_name, "", new { @class = "text-danger" })
+                            <span id="errmessage" class="alert-danger"></span>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label class="sr-only" for="inlineFormInputGroup" id="passwordlable">Password</label>
+                            <div class="input-group" id="password">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"> </div>
+                                </div>
+                                @Html.PasswordFor(c => c.password, new { @class = "form-control", placeholder = "Password" })
+                            </div>
+                            @Html.ValidationMessageFor(c => c.password, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <div class="bg-transparent" style="text-align: left;" id="rememberme">
+                                Remember Me @Html.CheckBoxFor(c => c.RememberMe, new { placeholder = "Remember Me" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12" id="forgotpasslink" onclick="datahide()">
+                            <div class="bg-transparent">
+                                <a href="#">Forgot password</a>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary mb-3" id="login" onclick="@Url.Action("Login","account")">Login</button>
+                            <a data-toggle="modal" data-target="#mailmodal" class="btn btn-primary mb-3" id="forgotpass" onclick="finduser()" style="color: white;">Send Mail</a>
+
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <div id="signup">Don't have you Account? <a class="underlineHover" href="@Url.Action("Registration","account")>Sign UP</a></div>
+                            <div id="signin">Return to <a href="@Url.Action("Login","account")">Login</a></div>
+                        </div>
+
+
+                    </div>
+
+                </form>
+            </div>
+        </center>*@
+
+    @*=====================================modal=========================================*@
+    <div id="mailmodal" class="modal" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Please check your mail for reset password link..!! <br /> Your Mail-Id is : <span id="mailspan">@ViewBag.mail</span></h4>
+                    <button type="button" class="close" data-dismiss="modal" airal-label="Close" onclick="cleardata()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary" href="@Url.Action("Login","account")">Ok</a>
+                    <a class="btn btn-secondary" href="@Url.Action("Login","account")">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*=====================================modal over=========================================*@
+
+    <script>
+
+    $(function () {
+        $('#forgotpass').hide();
+        $('#signin').hide();
+    })
+
+    function datahide() {
+        $('#password').hide();
+        $('#rememberme').hide();
+        $('#login').hide();
+        $('#forgotpasslink').hide();
+        $('#signup').hide();
+        $('#signin').show();
+        $('#forgotpass').show();
+        document.getElementById('heading').innerHTML = "Forgot password"
+
+    }
+
+    function finduser() {
+        document.getElementById('mailspan').innerHTML = document.getElementById('username').value
+        $.ajax({
+            url: "@Url.Action("forgotpassword", "account")?email_id=" + document.getElementById("username").value,
+            type: 'GET',
+            success: function (response) {
+
+                if (response.errors.length != 0) {
+                    for (err = 0; err < response.errors.length; err++) {
+                    document.getElementById('errmessage').innerHTML += response.errors[err]
+                    }
+                }
+                else {
+                    document.getElementById("modelmailid").innerHTML = "";
+                     window.location.reload("@Url.Action("Login","account")");
+                }
+
+            }
+        })
+    }
+    </script>
+
+    <!-- Mainly scripts -->
+    <script src="~/js/jquery-3.1.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.js"></script>
+
+    @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @*<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>*@
+
+</body>
