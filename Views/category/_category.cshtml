@@ -1,0 +1,34 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<Ecommerce.Models.Category>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Category Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td><img src="~/image/category/@item.thumbnail_image" style="max-height:50px; border-radius:30px" /></td>
+            <td id="getchildtr" data-id="@(item.category_id)">
+                @item.category_name
+            </td>
+
+            <td>
+                <a data-toggle="modal" data-target="#insertupdatemodel" id="Update" onclick="dataonclick(@item.category_id)" class="btn btn-info text-white">Edit</a>
+                <a data-toggle="modal" data-target="#delmodal" onclick="dataonclick(@item.category_id)" value="Delete" class="btn btn-danger">Delete</a>
+            </td>
+            <td>
+                <div id="partialview@(item.category_id)"></div>
+            </td>
+        </tr>
+
+    }
+    </tbody>
+</table>

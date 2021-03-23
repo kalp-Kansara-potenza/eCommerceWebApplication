@@ -8,6 +8,7 @@ namespace Ecommerce.API.Repository
 {
     public interface IAccount
     {
+        int stringdcrypt(string str);
         string stringencrypt(string str);
         Login Login(Login login);
         void Registration(Users users);

@@ -21,6 +21,33 @@ namespace Ecommerce.API.DataManager
             this.ecomContext = ecomContext;
         }
 
+        public int stringdcrypt(string str)
+        {
+            try
+            {
+                byte[] toEncryptArray = Convert.FromBase64String(str);
+                MD5CryptoServiceProvider objMD5CryptoService = new MD5CryptoServiceProvider();
+                byte[] securityKeyArray = objMD5CryptoService.ComputeHash(UTF8Encoding.UTF8.GetBytes(SecurityKey));
+                objMD5CryptoService.Clear();
+                var objTripleDESCryptoService = new TripleDESCryptoServiceProvider();
+                objTripleDESCryptoService.Key = securityKeyArray;
+                objTripleDESCryptoService.Mode = CipherMode.ECB;
+                objTripleDESCryptoService.Padding = PaddingMode.PKCS7;
+
+                var objCrytpoTransform = objTripleDESCryptoService.CreateDecryptor();
+
+                byte[] resultArray = objCrytpoTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
+                objTripleDESCryptoService.Clear();
+                int uid = int.Parse(Encoding.UTF8.GetString(resultArray));
+                return uid;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception " + e);
+            }
+            throw new NotImplementedException();
+        }
+
         public string stringencrypt(string str)
         {
             try
@@ -72,24 +99,40 @@ namespace Ecommerce.API.DataManager
 
         public Users finduser(Users users)
         {
-            var userdata = ecomContext.DBusers.Where(user => user.username == users.username || user.email_id == users.email_id || user.user_id == users.user_id).Select(u=>new Users{ 
-                user_id = users.user_id,
-                username = users.username,
-                firstname = users.firstname,
-                middlename = users.middlename,
-                lastname = users.lastname,
-                email_id = users.email_id,
-                phonenumber1 = users.phonenumber1,
-                phonenumber2 = users.phonenumber2,
-                password = users.password,
-                address1 = users.address1,
-                address2 = users.address2,
-                city = users.city,
-                state = users.state,
-                pincode = users.pincode,
-                role_id = users.role_id
-            }).FirstOrDefault();
-            return userdata;
+            //var userdata = ecomContext.DBusers.Where(user => user.username == users.username || user.email_id == users.email_id || user.user_id == users.user_id).Select(u=>new Users{ 
+            //    user_id = users.user_id,
+            //    username = users.username,
+            //    firstname = users.firstname,
+            //    middlename = users.middlename,
+            //    lastname = users.lastname,
+            //    email_id = users.email_id,
+            //    phonenumber1 = users.phonenumber1,
+            //    phonenumber2 = users.phonenumber2,
+            //    password = users.password,
+            //    address1 = users.address1,
+            //    address2 = users.address2,
+            //    city = users.city,
+            //    state = users.state,
+            //    pincode = users.pincode,
+            //    role_id = users.role_id
+            //}).FirstOrDefault();
+            var userdata = ecomContext.DBusers.FirstOrDefault(user => user.username == users.username || user.email_id == users.email_id || user.user_id == users.user_id);
+            users.user_id = userdata.user_id;
+            users.username = userdata.username;
+            users.firstname = userdata.firstname;
+            users.middlename = userdata.middlename;
+            users.lastname = userdata.lastname;
+            users.email_id = userdata.email_id;
+            users.phonenumber1 = userdata.phonenumber1;
+            users.phonenumber2 = userdata.phonenumber2;
+            users.password = userdata.password;
+            users.address1 = userdata.address1;
+            users.address2 = userdata.address2;
+            users.city = userdata.city;
+            users.state = userdata.state;
+            users.pincode = userdata.pincode;
+            users.role_id = userdata.role_id;
+            return users;
         }
 
         public void Registration(Users users)

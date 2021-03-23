@@ -126,3 +126,8 @@ G:\KALP\KALP-KANSARA-POTENZA\eCommerceWebApplication\obj\Debug\netcoreapp3.1\Raz
 G:\KALP\KALP-KANSARA-POTENZA\eCommerceWebApplication\bin\Debug\netcoreapp3.1\HTML5_Full_Version\js\api\typehead_collection.json
 G:\KALP\KALP-KANSARA-POTENZA\eCommerceWebApplication\bin\Debug\netcoreapp3.1\HTML5_Full_Version\locales\en.json
 G:\KALP\KALP-KANSARA-POTENZA\eCommerceWebApplication\bin\Debug\netcoreapp3.1\HTML5_Full_Version\locales\es.json
+G:\KALP\KALP-KANSARA-POTENZA\eCommerceWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\account\forgetpassword.cshtml.g.cs
+G:\KALP\KALP-KANSARA-POTENZA\eCommerceWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\category\addupdatecategory.cshtml.g.cs
+G:\KALP\KALP-KANSARA-POTENZA\eCommerceWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\category\Category.cshtml.g.cs
+G:\KALP\KALP-KANSARA-POTENZA\eCommerceWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\category\getchildCategory.cshtml.g.cs
+G:\KALP\KALP-KANSARA-POTENZA\eCommerceWebApplication\obj\Debug\netcoreapp3.1\Razor\Views\category\_category.cshtml.g.cs

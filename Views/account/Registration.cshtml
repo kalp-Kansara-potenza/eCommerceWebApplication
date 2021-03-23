@@ -2,171 +2,153 @@
     Layout = null;
 }
 <head>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>E-Commerce | Registration</title>
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="~/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="~/css/plugins/steps/jquery.steps.css?" rel="stylesheet">
+    <link href="~/css/animate.css" rel="stylesheet">
+    <link href="~/css/style.css?v1" rel="stylesheet">
+
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/css/site.css?v1" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
 </head>
 @model Ecommerce.Models.Users
 <span class="alert-danger">@ViewBag.err</span>
-<center>
-    <div class="col-md-6 py-5 ">
-        <h4 class="pb-4">Registration</h4>
-        <form class="row g-3" method="post" asp-controller="account" asp-action="Registration">
-            <div class="form-group row g-3">
 
 
-                <div class="form-group col-md-4">
-                    <label class="sr-only" for="inlineFormInputGroup">Firstname</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"> </div>
+<body class="gray-bg">
+    <div class="middle-box loginscreen animated fadeInDown">
+        <div>
+            <div>
+                <h1 class="logo-name"></h1>
+            </div>
+            <h3 style="text-align:center;">E-Commerce Login</h3>
+
+            <form class="m-t" role="form" method="post" asp-controller="account" asp-action="Registration">
+                <div class="form-group">
+                    @Html.Label("Name")
+                    <div class="row">
+                        <div class="col-4">
+                            @Html.TextBoxFor(c => c.firstname, new { @class = "form-control", placeholder = "First Name" })
+                            @Html.ValidationMessageFor(c => c.firstname, "", new { @class = "text-danger" })
                         </div>
-                        @Html.TextBoxFor(c => c.firstname, new { @class = "form-control", placeholder = "First name" })
+                        <div class="col-4">
+                            @Html.TextBoxFor(c => c.middlename, new { @class = "form-control", placeholder = "Middle Name" })
+                        </div>
+                        <div class="col-4">
+                            @Html.TextBoxFor(c => c.lastname, new { @class = "form-control", placeholder = "Middle Name" })
+                            @Html.ValidationMessageFor(c => c.lastname, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                    @Html.ValidationMessageFor(c => c.firstname, "", new { @class = "text-danger" })
                 </div>
-                <div class="form-group col-md-4">
-                    <label class="sr-only" for="inlineFormInputGroup">Middlename</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"> </div>
-                        </div>
-                        @Html.TextBoxFor(c => c.middlename, new { @class = "form-control", placeholder = "Middle name" })
-                    </div>
-
-                </div>
-                <div class="form-group col-md-4">
-                    <label class="sr-only" for="inlineFormInputGroup">lastName</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"> </div>
-                        </div>
-                        @Html.TextBoxFor(c => c.lastname, new { @class = "form-control", placeholder = "Last name" })
-                    </div>
-                    @Html.ValidationMessageFor(c => c.lastname, "", new { @class = "text-danger" })
-
-                </div>
-
-                <div class="form-group col-md-12">
-                    <label class="sr-only" for="inlineFormInputGroup">Email</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"> </div>
-                        </div>
-                        @Html.TextBoxFor(c => c.email_id, new { @class = "form-control", placeholder = "Email Id" })
-                    </div>
+                <div class="form-group">
+                    @Html.Label("Email-Id")
+                    @Html.TextBoxFor(c => c.email_id, new { @class = "form-control", placeholder = "" })
                     @Html.ValidationMessageFor(c => c.email_id, "", new { @class = "text-danger" })
                 </div>
-
-                <div class="form-group col-md-6">
-                    <label class="sr-only" for="inlineFormInputGroup">Username</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"> </div>
-                        </div>
-                        @Html.TextBoxFor(c => c.username, new { @class = "form-control", placeholder = "Username" })
-                    </div>
-                    @Html.ValidationMessageFor(c => c.username, "", new { @class = "text-danger" })
-                </div>
-
-                <div class="form-group col-md-6">
-                    <label class="sr-only" for="inlineFormInputGroup">Password</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"> </div>
-                        </div>
-                        @Html.PasswordFor(c => c.password, new { @class = "form-control", placeholder = "Password" })
-                    </div>
+                <div class="form-group">
+                    @Html.Label("Password")
+                    @Html.PasswordFor(c => c.password, new { @class = "form-control", placeholder = "" })
                     @Html.ValidationMessageFor(c => c.password, "", new { @class = "text-danger" })
                 </div>
-
-
-
-
-
-                <div class="form-group col-md-6">
-                    <label class="sr-only" for="inlineFormInputGroup">Mobile No. 1</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"> </div>
-                        </div>
-                        @Html.TextBoxFor(c => c.phonenumber1, new { @class = "form-control", placeholder = "Mobile No." })
-                    </div>
-                    @Html.ValidationMessageFor(c => c.phonenumber1, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.Label("UserName")
+                    @Html.TextBoxFor(c => c.username, new { @class = "form-control", placeholder = "" })
+                    @Html.ValidationMessageFor(c => c.username, "", new { @class = "text-danger" })
                 </div>
-                <div class="form-group col-md-6">
-                    <label class="sr-only" for="inlineFormInputGroup">Alternative Mobile No.</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"> </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-6">
+                            @Html.Label("Mobile Number")
+                            @Html.TextBoxFor(c => c.phonenumber1, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(c => c.phonenumber1, "", new { @class = "text-danger" })
                         </div>
-                        @Html.TextBoxFor(c => c.phonenumber2, new { @class = "form-control", placeholder = "Alternative Mobile No." })
+                        <div class="col-6">
+                            @Html.Label("Alternative Mobile Number")
+                            @Html.TextBoxFor(c => c.phonenumber2, new { @class = "form-control" })
+                        </div>
                     </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-6">
+                            @Html.Label("Address")
+                            @Html.TextBoxFor(c => c.address1, new { @class = "form-control", placeholder = "" })
+                            @Html.ValidationMessageFor(c => c.address1, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-6">
+                            @Html.Label("Alternative Address")
+                            @Html.TextBoxFor(c => c.address2, new { @class = "form-control", placeholder = "" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-4">
+                            @Html.Label("City")
+                            @Html.TextBoxFor(c => c.city, new { @class = "form-control", placeholder = "" })
+                            @Html.ValidationMessageFor(c => c.city, "", new { @class = "text-danger" })
+                        </div>
 
-                </div>
+                        <div class="col-4">
+                            @Html.Label("State")
+                            @Html.TextBoxFor(c => c.state, new { @class = "form-control", placeholder = "" })
+                            @Html.ValidationMessageFor(c => c.state, "", new { @class = "text-danger" })
+                        </div>
 
-                <div class="form-group col-md-6">
-                    <label class="sr-only" for="inlineFormInputGroup">Address</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"> </div>
+                        <div class="col-4">
+                            @Html.Label("Pincode")
+                            @Html.TextBoxFor(c => c.pincode, new { @class = "form-control", placeholder = "" })
+                            @Html.ValidationMessageFor(c => c.pincode, "", new { @class = "text-danger" })
                         </div>
-                        @Html.TextBoxFor(c => c.address1, new { @class = "form-control", placeholder = "Address" })
                     </div>
-                    @Html.ValidationMessageFor(c => c.address1, "", new { @class = "text-danger" })
                 </div>
+                <button type="submit" class="btn btn-primary block full-width m-b" id="login"  style="background-color: #1ab394; border-color: #1ab394;">Registration</button>
 
-                <div class="form-group col-md-6">
-                    <label class="sr-only" for="inlineFormInputGroup">Alternative Address</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"> </div>
-                        </div>
-                        @Html.TextBoxFor(c => c.address2, new { @class = "form-control", placeholder = "Alternative Address" })
-                    </div>
+                <p class="text-muted text-center"><small>Have you an account?</small></p>
+                <div id="signin"><a href="@Url.Action("Login","account")" class="btn btn-sm btn-white btn-block">Return To Login</a></div>
+            </form>
 
-                </div>
-                <div class="form-group col-md-4">
-                    <label class="sr-only" for="inlineFormInputGroup">City</label>
-                    <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"> </div>
-                        </div>
-                        @Html.TextBoxFor(c => c.city, new { @class = "form-control", placeholder = "city" })
-                    </div>
-                    @Html.ValidationMessageFor(c => c.city, "", new { @class = "text-danger" })
-                </div>
-                <div class="form-group col-md-4">
-                    <label class="sr-only" for="inlineFormInputGroup">State</label>
-                    <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"> </div>
-                        </div>
-                        @Html.TextBoxFor(c => c.state, new { @class = "form-control", placeholder = "State" })
-                    </div>
-                    @Html.ValidationMessageFor(c => c.state, "", new { @class = "text-danger" })
-                </div>
-
-                <div class="form-group col-md-4">
-                    <label class="sr-only" for="inlineFormInputGroup">Pincode</label>
-                    <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"> </div>
-                        </div>
-                        @Html.TextBoxFor(c => c.pincode, new { @class = "form-control", placeholder = "Pincode" })
-                    </div>
-                    @Html.ValidationMessageFor(c => c.pincode, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="col">
-                <button type="submit" class="btn btn-primary mb-3">Register</button><t></t>
-                Have you Account? <a class="underlineHover" asp-action="Login" asp-controller="account">Login</a>
-            </div>
-        </form>
+        <p class="m-t">
+            <small>
+                Copyright
+                <script>document.write(new Date().getFullYear())</script>© <a href="#" class="">E-Commerce</a>
+                All Rights Reserved.
+            </small>
+        </p>
     </div>
-</center>
+</div>
 
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/site.js" asp-append-version="true"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+
+    <!-- Mainly scripts -->
+    <script src="~/js/jquery-3.1.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="~/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="~/js/inspinia.js"></script>
+    <script src="~/js/plugins/pace/pace.min.js"></script>
+
+    <!-- Steps -->
+    <script src="~/js/plugins/steps/jquery.steps.min.js"></script>
+
+    <!-- Jquery Validate -->
+    <script src="~/js/plugins/validate/jquery.validate.min.js"></script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+                          
+</body>

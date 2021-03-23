@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<Ecommerce.Models.Category>
+
+<table class="table table-striped">
+    
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td id="getchildtr" onclick="getchild(@(item.category_id))">
+                <img src="~/image/category/@item.thumbnail_image" style="min-height: 50px;max-width: 50px; border-radius: 30px" />
+                @item.category_name
+                
+                <div id="partialview@(item.category_id)"></div>
+            </td>
+            <td>
+                @*<a data-toggle="modal" data-target="#insertupdatemodel" id="Update" onclick="dataonclick(@item.category_id)" class="btn btn-info text-white">Edit</a>
+        <a data-toggle="modal" data-target="#delmodal" onclick="dataonclick(@item.category_id)" value="Delete" class="btn btn-danger">Delete</a>*@
+
+                <a href="@Url.Action("addupdatecategory","category")/@item.category_id" onclick="dataonclick(@item.category_id)" value="update" class="btn btn-info"><img src="~/lib/bootstrap-icons-1.3.0/pencil-fill.svg" /></a>
+                <a data-toggle="modal" data-target="#delmodal" onclick="dataonclick(@item.category_id)" value="Delete" class="btn btn-danger"><img src="~/lib/bootstrap-icons-1.3.0/trash-fill.svg" /></a>
+            </td>
+
+        </tr>
+        }
+    </tbody>
+</table>
+@*<script type="text/javascript">
+
+    $(function () {
+        $("#getchildtr").on("click", function () {
+            console.log($(this).data('id'))
+            var id = $(this).data('id')
+            $.ajax({
+            type: 'GET',
+                url: "@Url.Action("getchildCategory","category")?parent_category_id=" + $(this).data('id'),
+                success: function (response) {
+                    console.log(response);
+                    console.log(id);
+                    $("#partialview" + id).html(response);
+                }
+            })
+        })
+    })
+</script>*@

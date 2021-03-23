@@ -69,9 +69,12 @@ namespace Ecommerce.Controllers
             if (ModelState.IsValid)
             {
                 var userlogin = iaccount.Login(login);
-                HttpContext.Session.SetString("username",userlogin.user_name);
-                HttpContext.Session.SetString("rolename", userlogin.role_name);
-                
+                if(userlogin != null)
+                { 
+                    HttpContext.Session.SetString("username",userlogin.user_name);
+                    HttpContext.Session.SetString("rolename", userlogin.role_name);
+                }
+
                 if (userlogin == null)
                 {
                     ViewBag.err = "username and password invalid";
@@ -106,7 +109,7 @@ namespace Ecommerce.Controllers
             return View();
         }
 
-        [HttpGet]
+        [HttpGet]   
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
@@ -121,6 +124,12 @@ namespace Ecommerce.Controllers
         }
 
         [HttpGet]
+        public IActionResult forgetPassword()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public IActionResult forgotpassword(string email_id)
         {
             ViewBag.mail = email_id;
@@ -130,7 +139,9 @@ namespace Ecommerce.Controllers
             var stringbuilder = iaccount.stringencrypt(getuser.user_id.ToString());
             
             string subject = "Forgot Password";
-            string body = "<br /><br /> Please click the following button to reset password of your account <br /><a href = '"+Url.Action("changepassword","account",new { user_id = stringbuilder }, Url.ActionContext.HttpContext.Request.Scheme) + "'><button style='background-color:#5a5454;color:white;'>Reset password</button></a>";
+            string val = "<br /><br /> Please click the following button to reset password of your account <br /><a href = '"+Url.Action("changepassword","account",new { user_id = stringbuilder }, Url.ActionContext.HttpContext.Request.Scheme) + "'><button style='background-color:#5a5454;color:white;'>Reset password</button></a>";
+            var body = System.Net.WebUtility.UrlDecode(val);
+            var val2 = val.Split('=')[2];
             util u = new util(configuration);
             if(getuser != null)
             {
@@ -148,7 +159,7 @@ namespace Ecommerce.Controllers
         [HttpGet]
         public IActionResult changepassword(string user_id)
         {
-            int uid = Convert.ToInt32 (iaccount.stringencrypt(user_id));
+            int uid = Convert.ToInt32 (iaccount.stringdcrypt(user_id));
             ViewBag.uid = uid;
 
             Users user = new Users();
@@ -164,7 +175,8 @@ namespace Ecommerce.Controllers
             {
                 iaccount.changepassword(change);
             }
-            return Json(new { success = false, errors = ModelState.Values.SelectMany(ce => ce.Errors).Select(ce => ce.ErrorMessage).ToList() });
+            //return Json(new { success = false, errors = ModelState.Values.SelectMany(ce => ce.Errors).Select(ce => ce.ErrorMessage).ToList() });
+            return RedirectToAction("Login","account");
         }
 
         [HttpGet]
