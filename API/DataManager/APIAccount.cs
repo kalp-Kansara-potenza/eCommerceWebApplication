@@ -1,7 +1,7 @@
-﻿using Ecommerce.API.Repository;
-using Ecommerce.AppData;
-using Ecommerce.AppData.Context;
-using Ecommerce.Models;
+﻿using eCommerceWebApplication.API.Repository;
+using eCommerceWebApplication.AppData;
+using eCommerceWebApplication.AppData.Context;
+using eCommerceWebApplication.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ecommerce.API.DataManager
+namespace eCommerceWebApplication.API.DataManager
 {
     public class APIAccount : IAccount
     {
@@ -99,23 +99,6 @@ namespace Ecommerce.API.DataManager
 
         public Users finduser(Users users)
         {
-            //var userdata = ecomContext.DBusers.Where(user => user.username == users.username || user.email_id == users.email_id || user.user_id == users.user_id).Select(u=>new Users{ 
-            //    user_id = users.user_id,
-            //    username = users.username,
-            //    firstname = users.firstname,
-            //    middlename = users.middlename,
-            //    lastname = users.lastname,
-            //    email_id = users.email_id,
-            //    phonenumber1 = users.phonenumber1,
-            //    phonenumber2 = users.phonenumber2,
-            //    password = users.password,
-            //    address1 = users.address1,
-            //    address2 = users.address2,
-            //    city = users.city,
-            //    state = users.state,
-            //    pincode = users.pincode,
-            //    role_id = users.role_id
-            //}).FirstOrDefault();
             var userdata = ecomContext.DBusers.FirstOrDefault(user => user.username == users.username || user.email_id == users.email_id || user.user_id == users.user_id);
             users.user_id = userdata.user_id;
             users.username = userdata.username;
@@ -165,8 +148,8 @@ namespace Ecommerce.API.DataManager
         {
             Users users = new Users();
             users.user_id = change.user_id;
-            var getuser = finduser(users);
-            if(getuser != null)
+            var getuser = ecomContext.DBusers.Where(u=>u.user_id == change.user_id).First();
+            if (getuser != null)
             {
                 getuser.password = stringencrypt(change.password);
                 ecomContext.SaveChanges();

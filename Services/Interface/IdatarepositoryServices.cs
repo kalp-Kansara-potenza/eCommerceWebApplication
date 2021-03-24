@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ecommerce.Services.Interface
+namespace eCommerceWebApplication.Services.Interface
 {
     public interface IdatarepositoryServices<TEntity>
     {

@@ -1,4 +1,4 @@
-﻿using Ecommerce.AppData;
+﻿using eCommerceWebApplication.AppData;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ecommerce.Models
+namespace eCommerceWebApplication.Models
 {
     public class Category
     {

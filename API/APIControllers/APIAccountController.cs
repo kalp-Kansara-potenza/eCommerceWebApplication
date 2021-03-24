@@ -1,6 +1,6 @@
-﻿using Ecommerce.API.Repository;
-using Ecommerce.AppData.Context;
-using Ecommerce.Models;
+﻿using eCommerceWebApplication.API.Repository;
+using eCommerceWebApplication.AppData.Context;
+using eCommerceWebApplication.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
@@ -12,7 +12,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace Ecommerce.API.APIControllers
+namespace eCommerceWebApplication.API.APIControllers
 {
     [ApiController]
     [Route("api/[controller]")]

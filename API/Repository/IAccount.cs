@@ -1,10 +1,10 @@
-﻿using Ecommerce.Models;
+﻿using eCommerceWebApplication.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ecommerce.API.Repository
+namespace eCommerceWebApplication.API.Repository
 {
     public interface IAccount
     {

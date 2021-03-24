@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ecommerce.Models.Global
+namespace eCommerceWebApplication.Models.Global
 {
     public class globalEnum
     {

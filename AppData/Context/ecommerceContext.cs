@@ -1,11 +1,11 @@
-﻿using Ecommerce.Models;
+﻿using eCommerceWebApplication.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ecommerce.AppData.Context
+namespace eCommerceWebApplication.AppData.Context
 {
     public class ecommerceContext : DbContext
     {

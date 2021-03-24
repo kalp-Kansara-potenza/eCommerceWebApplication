@@ -1,8 +1,8 @@
-﻿using Ecommerce.API.Repository;
-using Ecommerce.AppData;
-using Ecommerce.AppData.Context;
-using Ecommerce.Models;
-using Ecommerce.Models.Global;
+﻿using eCommerceWebApplication.API.Repository;
+using eCommerceWebApplication.AppData;
+using eCommerceWebApplication.AppData.Context;
+using eCommerceWebApplication.Models;
+using eCommerceWebApplication.Models.Global;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
@@ -16,7 +16,7 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Ecommerce.Controllers
+namespace eCommerceWebApplication.Controllers
 {
     public class accountController : Controller
     {
@@ -174,9 +174,14 @@ namespace Ecommerce.Controllers
             if (ModelState.IsValid)
             {
                 iaccount.changepassword(change);
+                return RedirectToAction("Login", "account");
             }
+            var temp = String.Equals(change.password, change.confirmpassword);
+            if(temp == false)
+                ViewBag.err = "Enter same password in confirmpassword";
             //return Json(new { success = false, errors = ModelState.Values.SelectMany(ce => ce.Errors).Select(ce => ce.ErrorMessage).ToList() });
-            return RedirectToAction("Login","account");
+            return View();
+
         }
 
         [HttpGet]

@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 
-namespace Ecommerce.Models
+namespace eCommerceWebApplication.Models
 {
     public class util
     {

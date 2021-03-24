@@ -1,18 +1,19 @@
-﻿using Ecommerce.Models;
+﻿using eCommerceWebApplication.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ecommerce.Services.Interface
+namespace eCommerceWebApplication.Services.Interface
 {
     public interface IaccountServices
     {
+        int stringdcrypt(string str);
         string stringencrypt(string str);
-        Login Login(Login login);
-        void Registration(Users users);
-        Users finduser(Users users);
-        void changepassword(ChangePasswordModel change);
+        Task<Users> Login(Login login);
+        Task Registration(Users users);
+        Task<Users> finduser(Users users);
+        Task changepassword(ChangePasswordModel change);
 
     }
 }

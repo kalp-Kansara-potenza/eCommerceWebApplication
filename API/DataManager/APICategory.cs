@@ -1,14 +1,14 @@
-﻿using Ecommerce.API.Repository;
-using Ecommerce.AppData;
-using Ecommerce.AppData.Context;
-using Ecommerce.Models;
+﻿using eCommerceWebApplication.API.Repository;
+using eCommerceWebApplication.AppData;
+using eCommerceWebApplication.AppData.Context;
+using eCommerceWebApplication.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ecommerce.API.DataManager
+namespace eCommerceWebApplication.API.DataManager
 {
     public class APICategory : ICategory
     {

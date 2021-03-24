@@ -1,7 +1,7 @@
-﻿using Ecommerce.AppData;
-using Ecommerce.AppData.Context;
-using Ecommerce.Models;
-using Ecommerce.Models.Global;
+﻿using eCommerceWebApplication.AppData;
+using eCommerceWebApplication.AppData.Context;
+using eCommerceWebApplication.Models;
+using eCommerceWebApplication.Models.Global;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,7 +15,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace Ecommerce.Controllers
+namespace eCommerceWebApplication.Controllers
 {
     public class ProductController : Controller
     {

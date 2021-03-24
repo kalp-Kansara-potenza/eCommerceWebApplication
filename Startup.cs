@@ -1,9 +1,9 @@
-using Ecommerce.API.DataManager;
-using Ecommerce.API.Repository;
-using Ecommerce.AppData.Context;
-using Ecommerce.Models;
-using Ecommerce.Services;
-using Ecommerce.Services.Interface;
+using eCommerceWebApplication.API.DataManager;
+using eCommerceWebApplication.API.Repository;
+using eCommerceWebApplication.AppData.Context;
+using eCommerceWebApplication.Models;
+using eCommerceWebApplication.Services;
+using eCommerceWebApplication.Services.Interface;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -42,6 +42,7 @@ namespace eCommerceWebApplication
             services.AddControllersWithViews();
             services.AddDbContext<ecommerceContext>(options => options.UseSqlServer(Configuration.GetConnectionString("defaultConnection")));
             services.AddScoped<IAccount, APIAccount>();
+            services.AddScoped<IaccountServices, accountServices>();
 
             services.AddScoped<ICategory, APICategory>();
             services.AddScoped<IcategoryServices, categoryServices>();

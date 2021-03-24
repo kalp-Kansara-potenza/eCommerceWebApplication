@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ecommerce.AppData.Context
+namespace eCommerceWebApplication.AppData.Context
 {
     [Table("Specification")]
     public class DBspecification

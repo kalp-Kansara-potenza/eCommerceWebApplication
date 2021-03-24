@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Ecommerce.Migrations
+namespace eCommerceWebApplication.Migrations
 {
     public partial class addforeignkeyoffeaturetypeid : Migration
     {

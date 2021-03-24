@@ -1,11 +1,11 @@
 ﻿
-using Ecommerce.API.DataManager;
-using Ecommerce.API.Repository;
-using Ecommerce.AppData;
-using Ecommerce.AppData.Context;
-using Ecommerce.Models;
-using Ecommerce.Services;
-using Ecommerce.Services.Interface;
+using eCommerceWebApplication.API.DataManager;
+using eCommerceWebApplication.API.Repository;
+using eCommerceWebApplication.AppData;
+using eCommerceWebApplication.AppData.Context;
+using eCommerceWebApplication.Models;
+using eCommerceWebApplication.Services;
+using eCommerceWebApplication.Services.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -18,7 +18,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Ecommerce.Controllers
+namespace eCommerceWebApplication.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class categoryController : Controller
@@ -90,7 +90,7 @@ namespace Ecommerce.Controllers
                 }).FirstOrDefault();
                 if(joinquery.parent_category_id > 0)
                 {
-                    joinquery.featuretypelist = ecomContext.DBSpecificationsXCategories.Include(sc => sc.DBfeaturetype).Where(c => c.category_id == joinquery.parent_category_id).ToList();
+                    joinquery.featuretypelist = ecomContext.DBSpecificationsXCategories.Include(sc => sc.DBfeaturetype).Where(c => c.category_id == joinquery.parent_category_id).ToList(); //ecomContext.DBSpecificationsXCategories.Include(sc => sc.DBfeaturetype).Where(c => c.category_id == joinquery.parent_category_id).ToList();
                     joinquery.specificationtypelist = ecomContext.DBSpecificationsXCategories.Include(sc => sc.DBSpecificationtype).Where(c => c.category_id == joinquery.parent_category_id).ToList();
                 }
                 else

@@ -1,6 +1,6 @@
-﻿using Ecommerce.AppData;
-using Ecommerce.Models;
-using Ecommerce.Services.Interface;
+﻿using eCommerceWebApplication.AppData;
+using eCommerceWebApplication.Models;
+using eCommerceWebApplication.Services.Interface;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Ecommerce.Services
+namespace eCommerceWebApplication.Services
 {
     public class categoryServices : IcategoryServices
     {

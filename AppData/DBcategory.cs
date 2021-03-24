@@ -1,4 +1,4 @@
-﻿using Ecommerce.Models;
+﻿using eCommerceWebApplication.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ecommerce.AppData
+namespace eCommerceWebApplication.AppData
 {
     [Table("Category")]
     public class DBcategory

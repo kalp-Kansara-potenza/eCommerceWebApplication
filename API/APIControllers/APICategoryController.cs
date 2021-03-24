@@ -1,7 +1,7 @@
-﻿using Ecommerce.API.Repository;
-using Ecommerce.AppData;
-using Ecommerce.AppData.Context;
-using Ecommerce.Models;
+﻿using eCommerceWebApplication.API.Repository;
+using eCommerceWebApplication.AppData;
+using eCommerceWebApplication.AppData.Context;
+using eCommerceWebApplication.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ecommerce.API.APIControllers
+namespace eCommerceWebApplication.API.APIControllers
 {
     [ApiController]
     [Route("api/[controller]")]

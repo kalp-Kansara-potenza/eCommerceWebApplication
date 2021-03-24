@@ -1,13 +1,13 @@
-﻿using Ecommerce.AppData;
-using Ecommerce.AppData.Context;
-using Ecommerce.Models;
+﻿using eCommerceWebApplication.AppData;
+using eCommerceWebApplication.AppData.Context;
+using eCommerceWebApplication.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ecommerce.Controllers
+namespace eCommerceWebApplication.Controllers
 {
     public class SpecificationtypeController : Controller
     {

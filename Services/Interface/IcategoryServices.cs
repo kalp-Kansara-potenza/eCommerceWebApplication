@@ -1,12 +1,12 @@
-﻿using Ecommerce.AppData;
-using Ecommerce.Models;
+﻿using eCommerceWebApplication.AppData;
+using eCommerceWebApplication.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ecommerce.Services.Interface
+namespace eCommerceWebApplication.Services.Interface
 {
     public interface IcategoryServices
     {
