@@ -6916,11 +6916,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\KALP\\KALP-KANSARA-POTENZA\\eCommerceWebApplication\\eCommerceWebApplication.csproj",
+      "projectUniqueName": "D:\\Potenza\\eCommerceWebApplication\\eCommerceWebApplication.csproj",
       "projectName": "eCommerceWebApplication",
-      "projectPath": "G:\\KALP\\KALP-KANSARA-POTENZA\\eCommerceWebApplication\\eCommerceWebApplication.csproj",
+      "projectPath": "D:\\Potenza\\eCommerceWebApplication\\eCommerceWebApplication.csproj",
       "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "G:\\KALP\\KALP-KANSARA-POTENZA\\eCommerceWebApplication\\obj\\",
+      "outputPath": "D:\\Potenza\\eCommerceWebApplication\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7010,7 +7010,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   },
